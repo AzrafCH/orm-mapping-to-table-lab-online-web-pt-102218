@@ -26,14 +26,17 @@ class Student
       DROP TABLE IF EXISTS students;
       SQL
     DB[:conn].execute(sql)
-  end 
+  end
 
-  def save 
-    sql = <<-SQL 
+  def save
+    sql = <<-SQL
       INSERT INTO students (?,?)
       VALUES (name, grade)
-    SQL 
+    SQL
 
     DB[:conn].execute(sql)
+
+    DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
+  end 
 
 end
