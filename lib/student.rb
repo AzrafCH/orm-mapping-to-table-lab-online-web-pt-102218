@@ -6,9 +6,9 @@ class Student
   attr_reader  :id
 
   def initialize(name, grade, id = nil)
-    @name
-    @grade
-    @id = name, grade, id
+    @name = grade
+    @grade = grade
+    @id = id
   end
 
   def self.create_table
